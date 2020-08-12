@@ -7,7 +7,7 @@ import math
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.decomposition import PCA
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 import matplotlib.pyplot as plt
@@ -177,7 +177,7 @@ for rate in pca_rate:
     pca = PCA(n_components=rate)
     X_new = pca.fit_transform(X)
 
-    model = LinearRegression().fit(X_new, y)
+    model = LogisticRegression(solver='liblinear').fit(X_new, y)
     acc = accuracy_score(model.predict(X_new) > 0.5, y)
     print("rate: %s train acc: %s" % (rate, acc))
 
@@ -186,6 +186,5 @@ pred = model.predict(test_X)
 print("preds:")
 print(pred)
 
-f = lambda x : 1 if x > 0.5 else 0
-test_data["Survived"] = [f(x) for x in pred]
+test_data["Survived"] = pred
 test_data.to_csv("result.csv", columns=["PassengerId", "Survived"], index=False)
