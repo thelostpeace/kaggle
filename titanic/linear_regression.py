@@ -144,12 +144,12 @@ pca = PCA(n_components=2)
 #pca = PCA()
 X = pca.fit_transform(X)
 
-plt.scatter(X[:, 0], X[:, 1], alpha=0.2)
-plt.savefig("data.png")
-
 labelenc_survive = LabelEncoder()
 y = labelenc_survive.fit_transform(data["Survived"])
 print(y)
+
+plt.scatter(X[:, 0], X[:, 1], alpha=0.2, c=y)
+plt.savefig("data.png")
 
 model = LinearRegression().fit(X, y)
 
