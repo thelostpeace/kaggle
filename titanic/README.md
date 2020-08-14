@@ -8,3 +8,5 @@ Kaggle compete
  - logistic regression, get accuracy of `0.76794`
 
  - decision tree on grid search, get accuracy of `0.78229`, rank 7805 in kaggle titanic compete.
+
+ - random forest on grid search, get accuracy of `0.77511`
