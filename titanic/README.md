@@ -12,3 +12,5 @@ Kaggle compete
  - random forest on grid search, get accuracy of `0.77511`
 
  - gradient boosting decision tree on grid search, get accuracy of `0.76555`
+
+ - svm on grid search, get accuracy of `0.76794`
