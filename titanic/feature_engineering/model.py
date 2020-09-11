@@ -66,10 +66,11 @@ params = {
     'min_child_weight': [1, 5, 10],
     'subsample': [0.6, 0.8, 1.0],
     'gamma': [0.5, 1, 1.5, 2, 2.5],
-    'colsample_bytree': [0.6, 0.8, 1.0]
+    'colsample_bytree': [0.6, 0.8, 1.0],
+    'n_estimators': range(100, 1000, 100)
 }
 
-xgb = XGBClassifier(learning_rate=0.02, n_estimators=100, objective='binary:logistic', n_jobs=12)
+xgb = XGBClassifier(learning_rate=0.02, objective='binary:logistic', n_jobs=12)
 
 folds = 3
 iteration = 5
